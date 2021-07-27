@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+#container {
+  margin: 0 auto;
+  min-block-size: 100vh;
+  inline-size: 80%;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+
+  #header-logo {
+
+  }
+
+  .header-temp {
+    block-size: 10rem;
+    inline-size: 20rem;
+    padding: 0.2rem 0;
+    background-color: lightgray;
+    font-size: 2rem;
+  }
+}
+
+#nav {
+  display: flex;
+  flex-direction: row;
+
+  .nav-icon {
+    position: relative;
+    block-size: 3rem;
+    inline-size: 3rem;
+
+    span {
+      position: absolute;
+      display: block;
+      margin: 0 auto;
+      inline-size: 1.6rem;
+      block-size: 0.2rem;
+      background-color: black;
+    }
+
+    span:nth-child(1) {
+      top: 0;
+    }
+    span:nth-child(2) {
+      top: 0.6rem;
+    }
+    span:nth-child(3) {
+      top: 1.2rem;
+    }
+  }
+
+  ul {
+    li{
+      float: left;
+      font-size: 1.6rem;
+      list-style: none;
+    }
+
+    li::after {
+      content: " ";
+      margin: 0 0.5rem;
+    }
+
+    li:last-child::after {
+      content: none;
+    }
+
+    a {
+      outline: none;
+      text-decoration: none;
+      line-height: 3;
+      color: black;
+    }
+  }
+}
+
+#section1 {
+}
+
+#section1-1 {
+}
+
+#section1-2 {
+}
+
+#section1-3 {
+}
+
+#section1-4 {
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.card {
+  display: inline-block;
+  background: white;
+  z-index: 1;
+
+  .card-image-wrapper {
+    background: rgba(0.0, 0.0, 0.0, 1.0);
+    block-size: 0;
+    padding-bottom: 75%;
+  }
+
+  .card-title {
+    padding: 0.5rem 2rem;
+    z-index: 0;
+  }
+}
+
+.main-card {
+  inline-size: 40rem;
+  grid-area: 2 / 1 / 4 / 3;
+
+  img {
+    max-inline-size: 40rem;
+  }
+}
+
+.sub-card {
+  inline-size: 20rem;
+
+  img {
+    max-inline-size: 20rem;
+  }
+}
