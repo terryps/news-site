@@ -27,6 +27,11 @@ body {
     font-family: NotoSansKR, sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
 #container {
   margin: 0 auto;
   min-block-size: 100vh;
@@ -119,11 +124,9 @@ body {
 #index-nav nav ul li a {
   position: relative;
   outline: none;
-  text-decoration: none;
   line-height: 3;
   font-size: 1.6rem;
   font-weight: 500;
-  color: black;
 }
 
 #index-nav nav ul li a::before {
@@ -170,75 +173,160 @@ body {
   cursor: pointer;
 }
 
-#content {
-    margin-top: 1.6rem;
-}
-
 #section1 {
     display: grid;
     grid-template-columns: 88rem 28rem;
     justify-content: space-between;
 }
 
-#main-news-slider {
-    margin: 4rem 0;
+#section1-1 .section-interval {
+    margin: 3.2rem 0;
 }
-.slider {
-    overflow: hidden;
+
+#section1-1 .main-section .article .images {
     position: relative;
+    overflow: hidden;
 }
 
-#section1-1 .slider ul li {
-    float: left;
-    inline-size: 75rem;
-    block-size: 25rem;
+#section1-1 .main-section .article img {
+    display: block;
+    margin: 0 auto;
+    inline-size: 84%;
+
+    transition: transform .3s ease;
+}
+#section1-1 .main-section .article img.blurred {
+    position: absolute;
+    display: block;
+    inline-size: 100%;
+    top: 0;
+    left: 0;
+
+    filter: blur(9px);
+    z-index: -1;
 }
 
-.cards-wrapper {
+#section1-1 .main-section a:hover img.blurred {
+    transform: scale(1);
+}
+
+#section1-1 .main-section a:hover img {
+    transform: scale(1.02);
+}
+
+#section1-1 .main-section a .title {
+    position: relative;
+    background-color: #ffffff;
+    padding: 1.2rem 0;
+}
+#section1-1 .main-section a .title::before {
+    content: "";
+    display: block;
+    position: absolute;
+    block-size: 1rem;
+    left: 0;right: 0;
+    bottom: 100%;
+    background-color: hsl(100, 100%, 80%);
+    transition: transform .3s ease;
+
+    transform: scaleY(0);
+    transform-origin: bottom left;
+}
+
+#section1-1 .main-section a:hover .title::before {
+    transform: scaleY(1);
+    transform-origin: bottom left;
+}
+
+#section1-1 .main-section a {
+    font-size: 3.6rem;
+    font-weight: 700;
+}
+
+#section1-1 .cards-section {
   display: grid;
-  grid-template: repeat(3, 28rem)/repeat(3, 28rem);
+  grid-template: repeat(3, 27rem)/repeat(3, 28rem);
   justify-content: space-between;
 }
 
-.bottom-cards-wrapper {
+#section1-1 .bottom-cards-section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.card {
+#section1-1 .cards-section .card {
   display: inline-block;
   z-index: 0;
 }
 
-.card-image-wrapper {
-    background: black;
-    block-size: 0;
-    padding-bottom: 75%;
-}
-
-.card-title {
-    background-color: #00aecd;
-    padding: 0.8rem 2rem;
-    block-size: 4rem;
-    z-index: 1;
-}
-
-.main-card {
-  inline-size: auto;
-  grid-area: 2 / 1 / 4 / 3;
-}
-
-.main-card img {
-  max-inline-size: 100%;
-}
-
-.sub-card {
+#section1-1 .cards-section .sub-card {
   inline-size: 28rem;
 }
 
-.sub-card img {
-  max-inline-size: 28rem;
+#section1-1 .cards-section .sub-card div.card-image-box {
+    block-size: 18rem;
+}
+
+#section1-1 .cards-section .sub-card .card-image-box img.card-image {
+  inline-size: 28rem;
+  block-size: 18rem;
+}
+
+#section1-1 .cards-section .sub-card div.card-title {
+    padding: 0.8rem 0;
+    block-size: 6.4rem;
+    font-size: 1.1rem;
+    word-break: keep-all;
+}
+
+#section1-1 .cards-section .main-card {
+    inline-size: auto;
+    grid-area: 2 / 1 / 4 / 3;
+}
+
+#section1-1 .cards-section .main-card img {
+    max-inline-size: 100%;
+}
+
+#section1-1 .cards-section .main-card .card-title {
+    font-size: 1.6rem;
+    word-break: keep-all;
+}
+
+#section1-1 .cards-section .card .card-image-box {
+    overflow: hidden;
+}
+
+#section1-1 .cards-section .card .card-image-box img.card-image{
+    transition: transform .3s ease;
+}
+
+#section1-1 .cards-section .card:hover .card-image-box img.card-image {
+    transform: scale(1.1);
+}
+
+#section1-1 .cards-section .card div.card-title {
+    position: relative;
+}
+
+#section1-1 .cards-section .card div.card-title::before {
+    content: "";
+    display: block;
+    position: absolute;
+    block-size: 1rem;
+    left: 0;right: 0;
+    bottom: 100%;
+    background-color: hsl(100, 100%, 80%);
+    transition: transform .3s ease;
+
+    transform: scaleY(0);
+    transform-origin: bottom left;
+}
+
+#section1-1 .cards-section .card:hover div.card-title::before {
+    transform: scale(1);
+    transform-origin: bottom left;
 }
 
 #section1-2 {
@@ -285,11 +373,6 @@ body {
     margin-left: 4rem;
 }
 
-#editorial-section dl dd a{
-    text-decoration: none;
-    color: #1e1e1e;
-}
-
 #column-section {
     margin-top: 1rem;
 }
@@ -311,11 +394,6 @@ body {
     margin-left: 1.2rem;
     inline-size: 7rem;
     border-radius: 50%;
-}
-
-#column-section ul li p a {
-    text-decoration: none;
-    color: #1e1e1e;
 }
 
 #column-section ul li p a span {
@@ -380,11 +458,6 @@ body {
 
 #trend-tabs .tab-contents ol li:hover span.txt{
     color: hsl(20, 100%, 45%);
-}
-
-#trend-tabs .tab-contents ol li a {
-    text-decoration: none;
-    color: #1e1e1e;
 }
 
 #trend-tabs .tab-contents ol li a span.num {
