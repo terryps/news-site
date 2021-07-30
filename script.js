@@ -1,35 +1,41 @@
-// const slides = document.querySelectorAll('#main-news-slider ul li');
-// const slide = slides[0];
-// const slideCount = slides.length;
-// const slideWidth = slide.offsetWidth;
-// const slideHeight = slide.offsetHeight;
-// const sliderUlWidth = slideCount * slideWidth;
-//
-// const slider = document.querySelector('#main-news-slider');
-// slider.style.inlineSize = `${slideWidth}px`;
-// slider.style.blockSize = `${slideHeight}px`;
-//
-// const sliderUl = document.querySelector('#main-news-slider ul');
-// sliderUl.style.inlineSize = `${sliderUlWidth}px`;
-// sliderUl.style.marginLeft = `${-slideWidth}px`;
-//
-// const lastSlide = slides[slides.length - 1];
-// //sliderUl.prepend(lastSlide);
-//
-// function moveLeft() {}
-// const moveRight = sliderUl.animate([
-//     { transform: 'translateX(0)'},
-//     { transform: 'translateX(0)', offset: 0.85 },
-//     { transform: `translateX(${-slideWidth}px)`},
-// ], {
-//         duration: 3000,
-// });
-//
-// moveRight.onfinish = () => {
-//     const removeItem = sliderUl.removeChild(sliderUl.firstChild);
-//     sliderUl.appendChild(removeItem);
-//     moveRight.play();
-// }
+const columnBtnClick = () => {
+    const slider = document.querySelector('#column-section .slider');
+    const slides = document.querySelectorAll('#column-section .slider .slide');
+    const slideCount = slides.length;
+    const slideWidth = slides[0].offsetWidth;
+    const slideHeight = slides[0].offsetHeight;
+    const sliderWidth = slideCount * slideWidth;
+
+    const nextBtn = document.querySelector('#column-section button.next');
+
+    const sliderContainer = document.getElementById('column-section');
+    sliderContainer.style.inlineSize = `${slideWidth}px`;
+
+    slider.style.inlineSize = `${sliderWidth}px`;
+    slider.style.blockSize = `${slideHeight}px`;
+
+    slides.forEach((element, index) => {
+        element.style.marginLeft = `${index * slideWidth}px`;
+    });
+
+    const nextBtnClick = (e) => {
+        slider.style.transition = `transform .3s ease`;
+
+        slider.style.transform = `translateX(${-slideWidth}px)`;
+
+        const newLastSlide = slider.removeChild(slides[0]);
+        newLastSlide.classList.remove('showing');
+        slides[0].classList.add('showing');
+        slider.transform = `translateX(${slideWidth}px)`;
+        slider.appendChild(newLastSlide);
+
+        slides.forEach((element, index) => {
+            element.style.marginLeft = `${index * slideWidth}px`;
+        });
+    };
+    nextBtn.addEventListener("click", nextBtnClick, false);
+
+}
 
 const trendTabs = document.querySelectorAll('#trend-tab-index li');
 
@@ -57,4 +63,6 @@ window.onload = () => {
     trendTabs.forEach(tab =>
         tab.addEventListener("click", trendTabClick, false)
     );
+
+    columnBtnClick();
 }

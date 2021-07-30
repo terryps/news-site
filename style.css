@@ -298,7 +298,7 @@ a {
     overflow: hidden;
 }
 
-#section1-1 .cards-section .card .card-image-box img.card-image{
+#section1-1 .cards-section .card .card-image-box img.card-image {
     transition: transform .3s ease;
 }
 
@@ -354,7 +354,7 @@ a {
 /****** opinion section ******/
 
 #opinion-section {
-    block-size: 50rem;
+    block-size: 70rem;
 }
 
 #editorial-section {
@@ -375,6 +375,7 @@ a {
 
 #column-section {
     margin-top: 1rem;
+    overflow: hidden;
 }
 
 #column-section ul {
@@ -389,25 +390,46 @@ a {
     color: hsl(20, 100%, 45%);
 }
 
-#column-section ul li img {
+#column-section .slider .slide ul li img {
     float: right;
     margin-left: 1.2rem;
     inline-size: 7rem;
     border-radius: 50%;
 }
 
-#column-section ul li p a span {
+#column-section .slider .slide ul li p a span {
     display: block;
 }
 
-#column-section ul li p a span.title {
+#column-section .slider .slide ul li p a span.title {
     color: #d4af37;
 }
-#column-section ul li p a span.subtitle {
+#column-section .slider .slide ul li p a span.subtitle {
     word-break: keep-all;
 }
-#column-section ul li p a span.writer-name {
+#column-section .slider .slide ul li p a span.writer-name {
     font-size: 1.2rem;
+}
+
+#column-section .slider {
+    position: relative;
+}
+
+#column-section .slider .slide {
+    position: absolute;
+    inline-size: 28rem;
+}
+
+#column-section button {
+    margin: 1rem auto;
+    border: 0.1rem solid #1e1e1e;
+    border-radius: 100%;
+    outline: none;
+    inline-size: 3.2rem;
+    block-size: 3.2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    background-color: #ffffff;
 }
 
 /****** trend section ******/
