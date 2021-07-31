@@ -1,41 +1,53 @@
-const columnBtnClick = () => {
-    const slider = document.querySelector('#column-section .slider');
-    const slides = document.querySelectorAll('#column-section .slider .slide');
-    const slideCount = slides.length;
-    const slideWidth = slides[0].offsetWidth;
-    const slideHeight = slides[0].offsetHeight;
-    const sliderWidth = slideCount * slideWidth;
+const columnBtn = {
+    init : function() {
+        this.slider = document.querySelector('#column-section .slider');
+        this.slides = document.querySelectorAll('#column-section .slider .slide');
+        this.slideCount = this.slides.length;
+        this.slideWidth = this.slides[0].offsetWidth;
+        this.slideHeight = this.slides[0].offsetHeight;
+        this.sliderWidth = this.slideCount * this.slideWidth;
 
-    const nextBtn = document.querySelector('#column-section button.next');
+        this.slider.style.inlineSize = `${this.sliderWidth}px`;
+        this.slider.style.blockSize = `${this.slideHeight}px`;
+        this.slider.style.display = 'flex';
+        this.slider.style.transition = 'transform .3s ease';
 
-    const sliderContainer = document.getElementById('column-section');
-    sliderContainer.style.inlineSize = `${slideWidth}px`;
+        this.sliderScreen = document.getElementById('column-section');
+        this.sliderScreen.style.inlineSize = `${this.slideWidth}px`;
 
-    slider.style.inlineSize = `${sliderWidth}px`;
-    slider.style.blockSize = `${slideHeight}px`;
+        this.curIndex = 0;
+        this.position = 0;
+        this.prevBtn = document.querySelector('#column-section .buttons button.prev');
+        this.nextBtn = document.querySelector('#column-section .buttons button.next');
+        this.prevBtn.setAttribute('disabled', true);
+        this.prevBtn.addEventListener('click', this.prevBtnClick.bind(this), false);
+        this.nextBtn.addEventListener('click', this.nextBtnClick.bind(this), false);
 
-    slides.forEach((element, index) => {
-        element.style.marginLeft = `${index * slideWidth}px`;
-    });
+    },
+    prevBtnClick : function(e) {
+        if (this.curIndex > 0) {
+            this.nextBtn.removeAttribute('disabled');
+            this.position += this.slideWidth;
+            this.slider.style.transform = `translateX(${this.position}px)`;
+            this.curIndex -= 1;
+        }
+        if(this.curIndex == 0) {
+            this.prevBtn.setAttribute('disabled', true);
+        }
+    },
+    nextBtnClick : function(e) {
+        if (this.curIndex < this.slideCount - 1) {
+            this.prevBtn.removeAttribute('disabled');
+            this.position -= this.slideWidth;
+            this.slider.style.transform = `translateX(${this.position}px)`;
+            this.curIndex += 1;
+        }
+        if (this.curIndex == this.slideCount - 1) {
+            this.nextBtn.setAttribute('disabled', true);
+        }
+    },
 
-    const nextBtnClick = (e) => {
-        slider.style.transition = `transform .3s ease`;
-
-        slider.style.transform = `translateX(${-slideWidth}px)`;
-
-        const newLastSlide = slider.removeChild(slides[0]);
-        newLastSlide.classList.remove('showing');
-        slides[0].classList.add('showing');
-        slider.transform = `translateX(${slideWidth}px)`;
-        slider.appendChild(newLastSlide);
-
-        slides.forEach((element, index) => {
-            element.style.marginLeft = `${index * slideWidth}px`;
-        });
-    };
-    nextBtn.addEventListener("click", nextBtnClick, false);
-
-}
+};
 
 const trendTabs = document.querySelectorAll('#trend-tab-index li');
 
@@ -57,12 +69,12 @@ const trendTabClick = (e) => {
     // add current class
     e.target.classList.add("current");
     currentTab.classList.add("current");
-}
+};
 
 window.onload = () => {
     trendTabs.forEach(tab =>
         tab.addEventListener("click", trendTabClick, false)
     );
 
-    columnBtnClick();
+    columnBtn.init();
 }

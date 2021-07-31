@@ -176,6 +176,7 @@ a {
 #section1 {
     display: grid;
     grid-template-columns: 88rem 28rem;
+    /*grid-template-columns: 8rem 48rem;*/
     justify-content: space-between;
 }
 
@@ -411,17 +412,21 @@ a {
     font-size: 1.2rem;
 }
 
+#column-section .slider div.slide {
+    inline-size: 28rem;
+}
+
 #column-section .slider {
     position: relative;
 }
 
-#column-section .slider .slide {
-    position: absolute;
-    inline-size: 28rem;
+#column-section .buttons {
+    margin: 1rem auto;
+    text-align: center;
 }
 
-#column-section button {
-    margin: 1rem auto;
+#column-section .buttons button {
+    margin: 0 1rem;
     border: 0.1rem solid #1e1e1e;
     border-radius: 100%;
     outline: none;
@@ -430,6 +435,11 @@ a {
     font-size: 2rem;
     font-weight: 700;
     background-color: #ffffff;
+}
+
+#column-section .buttons button:not([disabled]):hover {
+    border-color: hsl(20, 100%, 45%);
+    color: hsl(20, 100%, 45%);
 }
 
 /****** trend section ******/
