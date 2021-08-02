@@ -18,6 +18,7 @@ const columnBtn = {
 
         this.sliderScreen = document.getElementById('column-section');
         this.sliderScreen.style.inlineSize = `${this.slideWidth}px`;
+
     },
 
     bindEvents : function() {
@@ -34,11 +35,11 @@ const columnBtn = {
         if (this.curIndex > 0) {
             this.nextBtn.removeAttribute('disabled');
             this.slides[this.curIndex].style.display = 'none';
-            this.slides[this.curIndex--].style.display = 'block';
+            this.slides[--this.curIndex].style.display = 'block';
             this.position += this.slideWidth;
             this.slider.style.transform = `translateX(${this.position}px)`;
         }
-        if(this.curIndex == 0) {
+        if(this.curIndex === 0) {
             this.prevBtn.setAttribute('disabled', true);
         }
     },
@@ -46,11 +47,11 @@ const columnBtn = {
         if (this.curIndex < this.slideCount - 1) {
             this.prevBtn.removeAttribute('disabled');
             this.slides[this.curIndex].style.display = 'none';
-            this.slides[this.curIndex++].style.display = 'block';
+            this.slides[++this.curIndex].style.display = 'block';
             this.position -= this.slideWidth;
             this.slider.style.transform = `translateX(${this.position}px)`;
         }
-        if (this.curIndex == this.slideCount - 1) {
+        if (this.curIndex === this.slideCount - 1) {
             this.nextBtn.setAttribute('disabled', true);
         }
     },
@@ -85,4 +86,6 @@ window.onload = () => {
     );
 
     columnBtn.init();
+
+    new Slick('#section2', 4);
 }

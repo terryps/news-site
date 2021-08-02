@@ -515,17 +515,26 @@ a {
     padding: 1.6rem 0;
 }
 
-#section2 .slick-slider {
-    display: flex;
+#section2 .slick-slide-wrapper {
+    position: relative;
+}
+
+#section2 .slick-slide-box {
     overflow: hidden;
 }
 
-#section2 .slick-slider .slick-slide {
-    margin: 0 1rem;
+#section2 .slick-slide-list {
+    display: table;
+    table-layout: fixed;
 }
 
-#section2 .slick-slider .slick-slide a .card-image-box img {
-    inline-size: 28rem;
+#section2 .slick-slide-list .slick-slide {
+    display: table-cell;
+    inline-size: 24rem;
+}
+
+#section2 .slick-slide a .card-image-box img {
+    inline-size: 24rem;
 }
 
 @media screen and (max-width: 1400px){
