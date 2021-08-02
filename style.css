@@ -21,7 +21,8 @@
   box-sizing: border-box; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 body {
     font-family: NotoSansKR, sans-serif;
@@ -175,13 +176,9 @@ a {
 
 #section1 {
     display: grid;
-    grid-template-columns: 88rem 28rem;
+    grid-template-columns: 74% 28rem;
     /*grid-template-columns: 8rem 48rem;*/
     justify-content: space-between;
-}
-
-#section1-1 .section-interval {
-    margin: 3.2rem 0;
 }
 
 #section1-1 .main-section .article .images {
@@ -287,7 +284,7 @@ a {
 }
 
 #section1-1 .cards-section .main-card .card-image-box {
-    max-block-size: 36rem;
+    block-size: 36rem;
 }
 
 #section1-1 .cards-section .main-card .card-image-box img {
@@ -338,7 +335,6 @@ a {
 }
 
 #section1-2 {
-    /*background-color: lightgrey;*/
     font-size: 1.5rem;
 }
 
@@ -512,4 +508,106 @@ a {
 #trend-tabs .tab-contents ol li a span.txt {
     line-height: 1.8;
     word-break: keep-all;
+}
+
+/* section 2 */
+#section2 {
+    padding: 1.6rem 0;
+}
+
+#section2 .slick-slider {
+    display: flex;
+    overflow: hidden;
+}
+
+#section2 .slick-slider .slick-slide {
+    margin: 0 1rem;
+}
+
+#section2 .slick-slider .slick-slide a .card-image-box img {
+    inline-size: 28rem;
+}
+
+@media screen and (max-width: 1400px){
+    html {
+        font-size: 0.75vw;
+    }
+    #container {
+        inline-size: 90%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 1vw;
+    }
+    #container {
+        inline-size: 90%;
+    }
+
+    #index-nav nav ul li::after,
+    #index-nav nav ul li::before {
+        margin: 0 1vw;
+    }
+
+    #index-nav nav ul li a {
+        font-size: 1.2vw;
+    }
+
+    #section1 {
+        grid-template-columns: 100%;
+    }
+    #section1-2 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #index-nav nav ul li::after,
+    #index-nav nav ul li::before {
+        margin: 0 0.6vw;
+    }
+
+}
+
+@media screen and (max-width: 570px) {
+    #index-nav {
+        display: none;
+    }
+
+    #section1-1 .cards-section,
+    #section1-1 .bottom-cards-section {
+        display: flex;
+        flex-direction: column;
+        /*grid-template: repeat(4, 30rem)/repeat(2, 28rem);*/
+    }
+
+    #section1-1 .card {
+        margin-bottom: 3vw;
+        block-size: 80vw;
+        inline-size: auto;
+    }
+
+    #section1-1 .cards-section .card .card-image-box,
+    #section1-1 .bottom-cards-section .card .card-image-box {
+        block-size: 60vw;
+    }
+    #section1-1 .cards-section .card .card-image-box img,
+    #section1-1 .bottom-cards-section .card .card-image-box img {
+        max-block-size: 60vw;
+    }
+    #section1-1 .cards-section .card .card-title,
+    #section1-1 .bottom-cards-section .card .card-title {
+        font-size: 3vw;
+
+    }
+    #section1-1 .cards-section .card .card-image-box img,
+    #section1-1 .bottom-cards-section .card .card-image-box img{
+        block-size: 60vw;
+        inline-size: 100%;
+    }
+
+    #section1-1 .card div.card-title::before {
+        block-size: 2rem;
+    }
 }

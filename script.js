@@ -1,5 +1,9 @@
 const columnBtn = {
     init : function() {
+        this.cacheDom();
+        this.bindEvents();
+    },
+    cacheDom : function() {
         this.slider = document.querySelector('#column-section .slider');
         this.slides = document.querySelectorAll('#column-section .slider .slide');
         this.slideCount = this.slides.length;
@@ -14,7 +18,9 @@ const columnBtn = {
 
         this.sliderScreen = document.getElementById('column-section');
         this.sliderScreen.style.inlineSize = `${this.slideWidth}px`;
+    },
 
+    bindEvents : function() {
         this.curIndex = 0;
         this.position = 0;
         this.prevBtn = document.querySelector('#column-section .buttons button.prev');
@@ -22,14 +28,15 @@ const columnBtn = {
         this.prevBtn.setAttribute('disabled', true);
         this.prevBtn.addEventListener('click', this.prevBtnClick.bind(this), false);
         this.nextBtn.addEventListener('click', this.nextBtnClick.bind(this), false);
-
     },
+
     prevBtnClick : function(e) {
         if (this.curIndex > 0) {
             this.nextBtn.removeAttribute('disabled');
+            this.slides[this.curIndex].style.display = 'none';
+            this.slides[this.curIndex--].style.display = 'block';
             this.position += this.slideWidth;
             this.slider.style.transform = `translateX(${this.position}px)`;
-            this.curIndex -= 1;
         }
         if(this.curIndex == 0) {
             this.prevBtn.setAttribute('disabled', true);
@@ -38,15 +45,15 @@ const columnBtn = {
     nextBtnClick : function(e) {
         if (this.curIndex < this.slideCount - 1) {
             this.prevBtn.removeAttribute('disabled');
+            this.slides[this.curIndex].style.display = 'none';
+            this.slides[this.curIndex++].style.display = 'block';
             this.position -= this.slideWidth;
             this.slider.style.transform = `translateX(${this.position}px)`;
-            this.curIndex += 1;
         }
         if (this.curIndex == this.slideCount - 1) {
             this.nextBtn.setAttribute('disabled', true);
         }
     },
-
 };
 
 const trendTabs = document.querySelectorAll('#trend-tab-index li');
@@ -70,6 +77,7 @@ const trendTabClick = (e) => {
     e.target.classList.add("current");
     currentTab.classList.add("current");
 };
+
 
 window.onload = () => {
     trendTabs.forEach(tab =>
