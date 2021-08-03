@@ -1,6 +1,5 @@
 const pixelToRemUnit = (pixelUnit) => {
-    console.log(pixelUnit);
-    return pixelUnit / parseInt(getComputedStyle(document.documentElement).fontSize) + "rem";
+    return pixelUnit / parseInt(getComputedStyle(document.documentElement).fontSize);
 }
 
 class Slick {
@@ -11,12 +10,24 @@ class Slick {
         this.nextBtn = document.querySelector(`${elementId} .slick-slide-btns .next-btn`);
         this.slideToShow = slideToShow;
         this.slideCount = this.slides.length;
-        this.slideWidth = 28;
-        this.slideSpeed = 300;
-        const startIdx = 0;
+        this.slideWidth = pixelToRemUnit(this.slides[0].offsetWidth);
+        this.slideSpeed = 500;
+        this.startIdx = 0;
 
+        // margin left & right
+        this.slideBox = document.querySelector(`${elementId} .slick-slide-box`);
+        this.slideBoxWidth = pixelToRemUnit(this.slideBox.offsetWidth);
+        const marginRemained = this.slideBoxWidth - this.slideToShow * this.slideWidth;
+        const m = (marginRemained > 0)? marginRemained / (this.slideToShow * 2) : 0;
+
+        this.slideWidth += 2 * m;
         this.slideList.style.inlineSize =
             this.slideWidth * (this.slideCount + 2 * this.slideToShow) + "rem";
+
+        this.slides.forEach(slide => {
+            slide.style.marginLeft = m + "rem";
+            slide.style.marginRight = m + "rem";
+        });
 
         // Copy first and last slide
         let clonedFirst = [];
@@ -37,11 +48,9 @@ class Slick {
 
         // move forward by num of slide to show
         this.slideList.style.transform =
-            `translateX(${-(this.slideWidth * (startIdx + this.slideToShow))}rem)`;
+            `translateX(${-(this.slideWidth * (this.startIdx + this.slideToShow))}rem)`;
 
-        this.curIdx = startIdx;
-        // this.curSlide = this.slides[this.curIdx];
-        // this.curSlide.classList.add('slide-active');
+        this.curIdx = this.startIdx;
         this.curSlides = [];
         for(let i=0; i < this.slideToShow; i++) {
             this.curSlides.push(this.slides[this.curIdx + i]);
