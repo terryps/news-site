@@ -88,4 +88,5 @@ window.onload = () => {
     columnBtn.init();
 
     new Slick('#section2', 4);
+    new Slick('#section3', 4)
 }

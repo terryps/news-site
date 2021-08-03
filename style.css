@@ -511,30 +511,58 @@ a {
 }
 
 /* section 2 */
-#section2 {
+#section2, #section3 {
     padding: 1.6rem 0;
 }
 
-#section2 .slick-slide-wrapper {
+#section2 .slick-slide-wrapper,
+#section3 .slick-slide-wrapper {
     position: relative;
 }
 
-#section2 .slick-slide-box {
+#section2 .slick-slide-box,
+#section3 .slick-slide-box {
     overflow: hidden;
 }
 
-#section2 .slick-slide-list {
+#section2 .slick-slide-list,
+#section3 .slick-slide-list {
     display: table;
     table-layout: fixed;
 }
 
-#section2 .slick-slide-list .slick-slide {
+#section2 .slick-slide-list .slick-slide,
+#section3 .slick-slide-list .slick-slide {
     display: table-cell;
     inline-size: 24rem;
 }
 
-#section2 .slick-slide a .card-image-box img {
+#section2 .slick-slide a .card-image-box img,
+#section3 .slick-slide a .card-image-box img {
     inline-size: 24rem;
+    block-size: 16rem;
+}
+
+#section2 div.prev-btn, #section2 div.next-btn,
+#section3 div.prev-btn, #section3 div.next-btn {
+    position: absolute;
+    inline-size: 6rem;
+    block-size: 8rem;
+    top: 25%;
+    text-align: center;
+    line-height: 8rem;
+    background-color: #2b2b2b;
+    color: #e1e1e1;
+    font-size: 2rem;
+    font-weight: 500;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#section2 div.next-btn,
+#section3 div.next-btn {
+    right: 0;
 }
 
 @media screen and (max-width: 1400px){
