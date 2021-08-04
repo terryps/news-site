@@ -4,20 +4,23 @@ const pixelToRemUnit = (pixelUnit) => {
 
 class Slick {
     constructor(elementId, slideToShow) {
+        this.slideBox = document.querySelector(`${elementId} .slick-slide-box`);
         this.slideList = document.querySelector(`${elementId} .slick-slide-list`);
         this.slides = document.querySelectorAll(`${elementId} .slick-slide`);
         this.prevBtn = document.querySelector(`${elementId} .slick-slide-btns .prev-btn`);
         this.nextBtn = document.querySelector(`${elementId} .slick-slide-btns .next-btn`);
         this.slideToShow = slideToShow;
         this.slideCount = this.slides.length;
-        this.slideWidth = pixelToRemUnit(this.slides[0].offsetWidth);
         this.slideSpeed = 500;
         this.startIdx = 0;
 
+        window.addEventListener('resize', this.resize.bind(this), false);
+        this.resize();
+
         // margin left & right
-        this.slideBox = document.querySelector(`${elementId} .slick-slide-box`);
+        this.slideWidth = pixelToRemUnit(this.slides[0].offsetWidth);
         this.slideBoxWidth = pixelToRemUnit(this.slideBox.offsetWidth);
-        const marginRemained = this.slideBoxWidth - this.slideToShow * this.slideWidth;
+        let marginRemained = this.slideBoxWidth - this.slideToShow * this.slideWidth;
         const m = (marginRemained > 0)? marginRemained / (this.slideToShow * 2) : 0;
 
         this.slideWidth += 2 * m;
@@ -28,6 +31,10 @@ class Slick {
             slide.style.marginLeft = m + "rem";
             slide.style.marginRight = m + "rem";
         });
+
+        // move forward by num of slide to show
+        this.slideList.style.transform =
+            `translateX(${-(this.slideWidth * (this.startIdx + this.slideToShow))}rem)`;
 
         // Copy first and last slide
         let clonedFirst = [];
@@ -56,9 +63,14 @@ class Slick {
             this.curSlides.push(this.slides[this.curIdx + i]);
         }
         this.curSlides.forEach(slide => slide.classList.add('slide-active'));
+        console.log(pixelToRemUnit(this.slides[0].offsetWidth));
 
-        this.prevBtn.addEventListener('click', this.prevBtnClick.bind(this), this);
+        this.prevBtn.addEventListener('click', this.prevBtnClick.bind(this), false);
         this.nextBtn.addEventListener('click', this.nextBtnClick.bind(this), false);
+    }
+
+    resize() {
+
     }
 
     prevBtnClick(e) {

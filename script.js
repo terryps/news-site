@@ -57,11 +57,11 @@ const columnBtn = {
     },
 };
 
-const trendTabs = document.querySelectorAll('#trend-tab-index li');
+const trendTabs = document.querySelectorAll('#trend-section .trend-tab-index li.tab-btn');
 
 const trendTabClick = (e) => {
-    const tabIndex = document.querySelectorAll('#trend-tab-index li');
-    const tabContents = document.querySelectorAll('#trend-tabs .tab-contents ol');
+    const tabIndex = document.querySelectorAll('#trend-section li.tab-btn');
+    const tabContents = document.querySelectorAll('#trend-section ol.tab-content');
     const tabIndexId = e.target.getAttribute('data-tab');
     const currentTab = document.getElementById(tabIndexId);
 
@@ -88,5 +88,5 @@ window.onload = () => {
     columnBtn.init();
 
     new Slick('#section2', 4);
-    new Slick('#section3', 4)
+    new Slick('#section3', 4);
 }
