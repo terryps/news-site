@@ -4,33 +4,16 @@ const pixelToRemUnit = (pixelUnit) => {
 
 class Slick {
     constructor(elementId, slideToShow) {
-        this.slideBox = document.querySelector(`${elementId} .slick-slide-box`);
         this.slideList = document.querySelector(`${elementId} .slick-slide-list`);
         this.slides = document.querySelectorAll(`${elementId} .slick-slide`);
-        this.prevBtn = document.querySelector(`${elementId} .slick-slide-btns .prev-btn`);
-        this.nextBtn = document.querySelector(`${elementId} .slick-slide-btns .next-btn`);
         this.slideToShow = slideToShow;
         this.slideCount = this.slides.length;
         this.slideSpeed = 500;
         this.startIdx = 0;
 
-        window.addEventListener('resize', this.resize.bind(this), false);
-        this.resize();
-
-        // margin left & right
         this.slideWidth = pixelToRemUnit(this.slides[0].offsetWidth);
-        this.slideBoxWidth = pixelToRemUnit(this.slideBox.offsetWidth);
-        let marginRemained = this.slideBoxWidth - this.slideToShow * this.slideWidth;
-        const m = (marginRemained > 0)? marginRemained / (this.slideToShow * 2) : 0;
-
-        this.slideWidth += 2 * m;
         this.slideList.style.inlineSize =
             this.slideWidth * (this.slideCount + 2 * this.slideToShow) + "rem";
-
-        this.slides.forEach(slide => {
-            slide.style.marginLeft = m + "rem";
-            slide.style.marginRight = m + "rem";
-        });
 
         // move forward by num of slide to show
         this.slideList.style.transform =
@@ -63,8 +46,9 @@ class Slick {
             this.curSlides.push(this.slides[this.curIdx + i]);
         }
         this.curSlides.forEach(slide => slide.classList.add('slide-active'));
-        console.log(pixelToRemUnit(this.slides[0].offsetWidth));
 
+        this.prevBtn = document.querySelector(`${elementId} .slick-slide-btns .prev-btn`);
+        this.nextBtn = document.querySelector(`${elementId} .slick-slide-btns .next-btn`);
         this.prevBtn.addEventListener('click', this.prevBtnClick.bind(this), false);
         this.nextBtn.addEventListener('click', this.nextBtnClick.bind(this), false);
     }
