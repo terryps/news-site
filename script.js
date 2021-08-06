@@ -27,6 +27,6 @@ window.onload = () => {
     );
 
     new Slick('#opinion-section .column-section', 1);
-    // new Slick('#section2', 4);
-    // new Slick('#section3', 4);
+    new Slick('#section2', 4);
+    new Slick('#section3', 4);
 }

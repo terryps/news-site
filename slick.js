@@ -4,20 +4,14 @@ const pixelToRemUnit = (pixelUnit) => {
 
 class Slick {
     constructor(elementId, slideToShow) {
-        this.slideList = document.querySelector(`${elementId} .slick-slide-list`);
-        this.slides = document.querySelectorAll(`${elementId} .slick-slide`);
+        this.elementId = elementId;
+        this.slideBox = document.querySelector(`${this.elementId} .slick-slide-box`);
+        this.slideList = document.querySelector(`${this.elementId} .slick-slide-list`);
+        this.slides = document.querySelectorAll(`${this.elementId} .slick-slide`);
         this.slideToShow = slideToShow;
         this.slideCount = this.slides.length;
         this.slideSpeed = 500;
         this.startIdx = 0;
-
-        this.slideWidth = pixelToRemUnit(this.slides[0].offsetWidth);
-        this.slideList.style.inlineSize =
-            this.slideWidth * (this.slideCount + 2 * this.slideToShow) + "rem";
-
-        // move forward by num of slide to show
-        this.slideList.style.transform =
-            `translateX(${-(this.slideWidth * (this.startIdx + this.slideToShow))}rem)`;
 
         // Copy first and last slide
         let clonedFirst = [];
@@ -36,16 +30,15 @@ class Slick {
             );
         }
 
-        // move forward by num of slide to show
-        this.slideList.style.transform =
-            `translateX(${-(this.slideWidth * (this.startIdx + this.slideToShow))}rem)`;
-
         this.curIdx = this.startIdx;
         this.curSlides = [];
         for(let i=0; i < this.slideToShow; i++) {
             this.curSlides.push(this.slides[this.curIdx + i]);
         }
         this.curSlides.forEach(slide => slide.classList.add('slide-active'));
+
+        window.addEventListener('resize', this.resize.bind(this), false);
+        this.resize();
 
         this.prevBtn = document.querySelector(`${elementId} .slick-slide-btns .prev-btn`);
         this.nextBtn = document.querySelector(`${elementId} .slick-slide-btns .next-btn`);
@@ -54,7 +47,19 @@ class Slick {
     }
 
     resize() {
+        const slideBoxWidth = pixelToRemUnit(this.slideBox.offsetWidth);
+        this.slideWidth = slideBoxWidth / this.slideToShow;
+        const increasedSlides = document.querySelectorAll(`${this.elementId} .slick-slide`);
+        increasedSlides.forEach(slide =>
+            slide.style.inlineSize = this.slideWidth + "rem"
+        );
 
+        this.slideList.style.inlineSize =
+            this.slideWidth * (this.slideCount + 2 * this.slideToShow) + "rem";
+
+        // move forward by num of slide to show
+        this.slideList.style.transform =
+            `translateX(${-(this.slideWidth * (this.curIdx + this.slideToShow))}rem)`;
     }
 
     prevBtnClick(e) {

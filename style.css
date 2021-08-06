@@ -193,8 +193,6 @@ a {
     grid-template-columns: calc(75% - 2rem) 25%;
     justify-content: space-between;
 }
-/*#section1-1{background-color: indianred}*/
-/*#section1-2{background-color: cornflowerblue}*/
 
 #section1-1 .main-news-section .news-wrapper { overflow: hidden; }
 #section1-1 .main-news-section .news-wrapper div.images {
@@ -308,18 +306,6 @@ a {
     inline-size: 100%;
     block-size: 100%;
 }
-
-/*#section1-1 .cards-section .main-card .card-image-box img {*/
-/*    inline-size: 100%;*/
-/*    max-block-size: 36rem;*/
-/*}*/
-
-/*#section1-1 .cards-section .main-card .card-title {*/
-/*    padding-top: 2rem;*/
-/*    padding-bottom: 1rem;*/
-/*    font-size: 1.6rem;*/
-/*    word-break: keep-all;*/
-/*}*/
 
 #section1-1 .card-news-section .card div.card-image {
     overflow: hidden;
@@ -483,9 +469,6 @@ a {
     inline-size: 28rem;
     overflow: hidden;
 }
-
-#opinion-section .column-section .slick-slide-list {}
-
 
 #opinion-section .column-section .slick-slide {
     float: left;
@@ -652,11 +635,9 @@ a {
 
 /* section 2 */
 #section2, #section3 {
-    position: absolute;
     margin: 1rem 0;
     border-top: 0.1rem solid #d2d2d2;
     padding-top: 1.6rem;
-    /*background-color: #18243a;*/
 }
 
 #section2 div.section-name, #section3 div.section-name {
@@ -674,89 +655,70 @@ a {
 
 #section2 .slick-slide-box,
 #section3 .slick-slide-box {
+    inline-size: 100%;
     overflow: hidden;
 }
 
-#section2 .slick-slide-list,
-#section3 .slick-slide-list {
-    display: table;
-    table-layout: fixed;
-    block-size: inherit;
+#section2 .slick-slide-box {
+    block-size: 24rem;
 }
 
 #section2 .slick-slide,
 #section3 .slick-slide {
-    display: table-cell;
+    float: left;
+    /*inline-size: 28rem;*/
+    /*inline-size: calc(100% / 16);*/
     text-align: -webkit-center;
 }
 
-#section2 div.card, #section3 div.card {
-    inline-size: 24rem;
+#section2 div.card,
+#section3 div.card {
+    inline-size: 90%;
     text-align: left;
 }
 
-#section2 div.card {
-    block-size: 20rem;
+#section2 div.card-image {
+    inline-size: 100%;
+    block-size: 16rem;
 }
 
-#section3 div.card {
-    block-size: 28rem;
+#section3 .card-image {
+    inline-size: 100%;
+    block-size: 18rem;
 }
 
-#section2 .card-image-box {
-    inline-size: inherit;
-    block-size: 70%;
-}
-#section3 .card-image-box {
-    inline-size: inherit;
-    block-size: 60%;
-}
-
-#section2 div.card-image-box img,
-#section3 div.card-image-box img {
+#section2 .card-image img,
+#section3 .card-image img {
     inline-size: 100%;
     block-size: 100%;
 }
 
 #section2 div.card-title,
 #section3 div.card-title {
-    padding-top: 1rem;
+    padding: 0.8rem 0;
+    min-block-size: 7rem;
     background-color: #ffffff;
+    font-size: 1.1rem;
+    word-break: keep-all;
 }
 
-#section2 div.card-title {
-    position: relative;
-    block-size: 30%;
+#section2 .card div.card-image,
+#section3 .card div.card-image {
+    overflow: hidden;
 }
-
-#section3 div.card-title {
-    position: relative;
-    block-size: 40%;
-}
-
-#section2 div.card-title::before,
-#section3 div.card-title::before {
-    content: "";
-    position: absolute;
-    display: block;
-    block-size: 1rem;
-    left: -1px;right: -1px;bottom: 100%;
-    background-color: hsl(100, 100%, 80%);
+#section2 .card .card-image img,
+#section3 .card .card-image img {
     transition: transform .3s ease;
-
-    transform: scaleY(0);
-    transform-origin: bottom;
+}
+#section2 .card:hover .card-image img,
+#section3 .card:hover .card-image img {
+    transform: scale(1.1);
 }
 
-#section2 .card:hover div.card-title::before,
-#section3 .card:hover div.card-title::before {
-    transform: scaleY(1);
-    transform-origin: bottom;
-}
-
-
-#section2 div.prev-btn, #section2 div.next-btn,
-#section3 div.prev-btn, #section3 div.next-btn {
+#section2 .slick-slide-btns div.prev-btn,
+#section2 .slick-slide-btns div.next-btn,
+#section3 .slick-slide-btns div.prev-btn,
+#section3 .slick-slide-btns div.next-btn {
     position: absolute;
     inline-size: 6rem;
     block-size: 8rem;
@@ -770,12 +732,11 @@ a {
     cursor: pointer;
     z-index: 10;
 }
-
 #section2 div.prev-btn, #section2 div.next-btn {
     top: 25%;
 }
 #section3 div.prev-btn, #section3 div.next-btn {
-    top: 36%;
+    top: 26%;
 }
 #section2 div.next-btn,
 #section3 div.next-btn {
