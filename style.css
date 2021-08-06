@@ -69,30 +69,57 @@ a {
 /* header */
 
 #header {
-  display: flex;
+    position: relative;
+    block-size: 10rem
 }
 
-.header-post {
-  position: relative;
-  block-size: 10rem;
-  inline-size: 20rem;
-  padding: 0.2rem 0;
-  font-size: 2rem;
+#header .row::after,
+#header .row::before {
+    display: table;
+    content: " ";
 }
 
-.header-post h3 {
+
+#header div.header-logo {
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    inline-size: 15rem;
+
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+#header div.header-event {
+    position: absolute;
+    top: 10%;left: 0;
+    padding: 1rem 0;
+    block-size: 8rem;
+}
+
+#header .header-event div.title {
+    position: relative;
+    font: 3.2rem Roboto;
     text-transform: uppercase;
 }
 
-.header-post span {
-    font-size: 0.6rem;
-    color: #5a5a5a;
+#header .header-event .title img {
+    position: absolute;
+    top: -10px; left: 44%;
+    block-size: 6rem;
+    transform: rotate(90deg);
 }
 
-.header-post div {
+#header .header-event span {
+    font-size: 1.6rem;
+}
+
+#header .header-date {
     position: absolute;
-    top: 0.2em;
-    left: 5em;
+    bottom: 0;right: 0;
+
+    line-height: 2;
+    font-size: 1.6rem;
 }
 
 /* nav */
@@ -676,10 +703,6 @@ a {
     overflow: hidden;
 }
 
-#section2 .slick-slide-box {
-    block-size: 24rem;
-}
-
 #section2 .slick-slide,
 #section3 .slick-slide {
     float: left;
@@ -760,11 +783,11 @@ a {
     right: 0;
 }
 
-/*@media screen and (max-width: 1200px){*/
-/*    html {*/
-/*        font-size: 0.75vw;*/
-/*    }*/
-/*}*/
+@media screen and (max-width: 1275px){
+    html {
+        /*font-size: 50%;*/
+    }
+}
 
 /*@media screen and (max-width: 1200px) {*/
 /*    html {*/
