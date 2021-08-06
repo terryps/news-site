@@ -57,6 +57,7 @@ class Slick {
         this.slideList.style.inlineSize =
             this.slideWidth * (this.slideCount + 2 * this.slideToShow) + "rem";
 
+        this.slideList.style.transition = "0ms";
         // move forward by num of slide to show
         this.slideList.style.transform =
             `translateX(${-(this.slideWidth * (this.curIdx + this.slideToShow))}rem)`;
