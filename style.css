@@ -298,13 +298,29 @@ a {
 }
 
 #section1-1 .card-news-section .main-card div.card-image {
-    inline-size: 49%;
+    inline-size: 100%;
     block-size: 18rem;
 }
 
 #section1-1 .card-news-section .main-card .card-image img {
     inline-size: 100%;
-    block-size: 100%;
+    block-size: 24rem;
+}
+
+#section1-1 .card-news-section .main-card div.card-title {
+    padding: 0.8rem 0;
+    min-block-size: 8rem;
+    inline-size: 100%;
+    font-size: 1.1rem;
+    word-break: keep-all;
+    background-color: #ffffff;
+}
+
+#section1-1 .card-news-section .main-card .card-title p {
+    font-size: 1.5rem;
+}
+#section1-1 .card-news-section .main-card .card-title p:hover {
+    color: hsl(20, 100%, 45%);
 }
 
 #section1-1 .card-news-section .card div.card-image {
@@ -466,7 +482,8 @@ a {
 }
 
 #opinion-section .column-section .slick-slide-box {
-    inline-size: 28rem;
+    /*inline-size: 28rem;*/
+    inline-size: 100%;
     overflow: hidden;
 }
 
