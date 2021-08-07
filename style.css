@@ -44,12 +44,12 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 body {
@@ -62,10 +62,10 @@ a {
 }
 
 #container {
-  margin: 0 auto;
+    margin: 0 auto;
     min-inline-size: 320px;
-  min-block-size: 100vh;
-  inline-size: 78%; }
+    min-block-size: 100vh;
+    inline-size: 78%; }
 
 /* header */
 
@@ -130,51 +130,51 @@ a {
     border-bottom: 0.1rem solid #aaa;
 }
 #index-nav .navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 #index-nav .nav-icon {
-  position: relative;
-  block-size: 3rem;
-  inline-size: 3rem;
+    position: relative;
+    block-size: 3rem;
+    inline-size: 3rem;
 }
 #index-nav nav .nav-icon span {
-  position: absolute;
-  display: block;
-  margin: 0 auto;
-  inline-size: 1.6rem;
-  block-size: 0.25rem;
-  background-color: black;
-  border-radius: 0.1rem;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    inline-size: 1.6rem;
+    block-size: 0.25rem;
+    background-color: black;
+    border-radius: 0.1rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
 #index-nav nav .nav-icon span:nth-child(1) {
-  top: calc(50% - 0.6rem);
+    top: calc(50% - 0.6rem);
 }
 #index-nav nav .nav-icon span:nth-child(2) {
-  top: 50%;
+    top: 50%;
 }
 #index-nav nav .nav-icon span:nth-child(3) {
-  top: calc(50% + 0.55rem);
+    top: calc(50% + 0.55rem);
 }
 #index-nav nav ul li {
-  float: left;
-  list-style: none;
+    float: left;
+    list-style: none;
 }
 #index-nav nav ul li::after,
 #index-nav nav ul li::before {
-  content: "";
-  margin: 0 1rem;
+    content: "";
+    margin: 0 1rem;
 }
 #index-nav nav ul li a {
-  position: relative;
-  outline: none;
-  line-height: 3;
-  font-size: 1.6rem;
-  font-weight: 500;
+    position: relative;
+    outline: none;
+    line-height: 3;
+    font-size: 1.6rem;
+    font-weight: 500;
 }
 #index-nav nav ul li a::before {
     content: "";
@@ -208,12 +208,12 @@ a {
     font-size: 1.6rem;
 }
 #index-nav nav .search-box button {
-  position: absolute;
-  border: 0;
-  block-size: 100%;
-  inline-size: 14%;
-  background-color: #fff;
-  cursor: pointer;
+    position: absolute;
+    border: 0;
+    block-size: 100%;
+    inline-size: 14%;
+    background-color: #fff;
+    cursor: pointer;
 }
 
 #section1 {
@@ -258,7 +258,7 @@ a {
 }
 #section1-1 .main-news-section div.title::before {
     content: "";
-/*    display: block;*/
+    /*    display: block;*/
     position: absolute;
     block-size: 1rem;
     left: -1px;right: -1px;
