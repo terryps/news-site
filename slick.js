@@ -1,5 +1,5 @@
 const pixelToRemUnit = (pixelUnit) => {
-    return pixelUnit / parseInt(getComputedStyle(document.documentElement).fontSize);
+    return pixelUnit / (parseInt(getComputedStyle(document.documentElement).fontSize));
 }
 
 class Slick {

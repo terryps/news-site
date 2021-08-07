@@ -20,7 +20,6 @@ const trendTabClick = (e) => {
     currentTab.classList.add("current");
 };
 
-
 window.onload = () => {
     trendTabs.forEach(tab =>
         tab.addEventListener("click", trendTabClick, false)

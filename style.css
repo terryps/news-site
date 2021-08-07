@@ -63,6 +63,7 @@ a {
 
 #container {
   margin: 0 auto;
+    min-inline-size: 320px;
   min-block-size: 100vh;
   inline-size: 78%; }
 
@@ -128,13 +129,13 @@ a {
     border-top: 0.1rem solid #d2d2d2;
     border-bottom: 0.1rem solid #aaa;
 }
-.navbar {
+#index-nav .navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.nav-icon {
+#index-nav .nav-icon {
   position: relative;
   block-size: 3rem;
   inline-size: 3rem;
@@ -283,12 +284,10 @@ a {
 #section1-1 .card-news-section div.card {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-/*  display: inline-block;*/
 }
 
 #section1-1 .card-news-section div.sub-card {
     inline-size: 100%;
-    /*block-size: 27rem;*/
 }
 
 #section1-1 .card-news-section .sub-card div.card-image {
@@ -706,8 +705,6 @@ a {
 #section2 .slick-slide,
 #section3 .slick-slide {
     float: left;
-    /*inline-size: 28rem;*/
-    /*inline-size: calc(100% / 16);*/
     text-align: -webkit-center;
 }
 
@@ -783,87 +780,101 @@ a {
     right: 0;
 }
 
-@media screen and (max-width: 1275px){
-    html {
-        /*font-size: 50%;*/
+@media screen and (max-width: 1275px) {
+    #section1-1 .main-news-section div.title {
+        font-size: 2.8rem;
+    }
+    #olympic-section .tokyo-header .tokyo-title span.title {
+        font-size: 1.6rem;
     }
 }
 
-/*@media screen and (max-width: 1200px) {*/
-/*    html {*/
-/*        !*font-size: 1vw;*!*/
-/*    }*/
-/*    #container {*/
-/*        inline-size: 70%;*/
-/*    }*/
+@media screen and (max-width: 1200px) {
+    #index-nav nav ul li::after,
+    #index-nav nav ul li::before {
+        margin: 0 .5rem;
+    }
 
-/*    #index-nav nav ul li::after,*/
-/*    #index-nav nav ul li::before {*/
-/*        margin: 0 1vw;*/
-/*    }*/
+    #index-nav nav ul li a {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+}
 
-/*    #index-nav nav ul li a {*/
-/*        font-size: 1.2vw;*/
-/*    }*/
+@media screen and (max-width: 1100px) {
+    #container {
+        inline-size: 84%;
+    }
+    #section1 {
+        grid-template-columns: calc(68% - 2rem) 32%;
+    }
+    #section1-1 .cards-grid {
+        grid-template-columns: repeat(2, 48%);
+    }
+}
 
-/*    #section1 {*/
-/*        grid-template-columns: 100%;*/
+@media screen and (max-width: 1000px) {
+    #section1-2 {
+        font-size: 1.2rem;
+    }
+    #section1-2 .tokyo-header .medal-box {
+        transform: scale(0.8);
+        top: -8%;right: -6%;
+    }
+    #olympic-section .medal-box div.medal span {
+        top: 41%;left: 43%;
+    }
+}
 
-/*    }*/
-/*    #section1-2 {*/
-/*        display: none;*/
-/*    }*/
-/*}*/
+@media screen and (max-width: 850px){
+    #section1-1 .cards-grid {
+        display: flex;
+        flex-direction: column;
+    }
 
-/*@media screen and (max-width: 1200px) {*/
-/*    #index-nav nav ul li::after,*/
-/*    #index-nav nav ul li::before {*/
-/*        margin: 0 0.6vw;*/
-/*    }*/
-/*}*/
+    #section1-1 .main-news-section .news-wrapper div.images {
+        block-size: 24rem;
+    }
 
-/*@media screen and (max-width: 750px) {*/
-/*    #container {*/
-/*        inline-size: 90%;*/
-/*    }*/
+    #section1-1 .main-news-section img.front {
+        inline-size: 100%;
+        block-size: 24rem;
+    }
+    #section1-1 .main-news-section img.behind {
+        display: none;
+    }
 
-/*    #index-nav {*/
-/*        display: none;*/
-/*    }*/
+    #section1-1 .card-news-section .card div.card-image {
+        position: relative;
+        inline-size: 100%;
+        block-size: 30rem;
+    }
 
-/*    #section1-1 .cards-section,*/
-/*    #section1-1 .bottom-cards-section {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        !*grid-template: repeat(4, 30rem)/repeat(2, 28rem);*!*/
-/*    }*/
+    #section1-1 .card-news-section .card .card-image img {
+        inline-size: 100%;
+        block-size: 100%;
+    }
+}
 
-/*    #section1-1 .card {*/
-/*        margin-bottom: 3vw;*/
-/*        block-size: 80vw;*/
-/*        inline-size: auto;*/
-/*    }*/
+@media screen and (max-width: 800px){
+    #index-nav {
+        display: none;
+    }
 
-/*    #section1-1 .cards-section .card .card-image-box,*/
-/*    #section1-1 .bottom-cards-section .card .card-image-box {*/
-/*        block-size: 60vw;*/
-/*    }*/
-/*    #section1-1 .cards-section .card .card-image-box img,*/
-/*    #section1-1 .bottom-cards-section .card .card-image-box img {*/
-/*        max-block-size: 60vw;*/
-/*    }*/
-/*    #section1-1 .cards-section .card .card-title,*/
-/*    #section1-1 .bottom-cards-section .card .card-title {*/
-/*        font-size: 3vw;*/
+    #container {inline-size: 74%;}
 
-/*    }*/
-/*    #section1-1 .cards-section .card .card-image-box img,*/
-/*    #section1-1 .bottom-cards-section .card .card-image-box img{*/
-/*        block-size: inherit;*/
-/*        inline-size: 100%;*/
-/*    }*/
-
-/*    #section1-1 .card div.card-title::before {*/
-/*        block-size: 2rem;*/
-/*    }*/
-/*}*/
+    #header .row div.header-event {
+        display: none;
+    }
+    #section1 {
+        display: flex;
+        flex-direction: column;
+    }
+    #section1-2 {
+        align-self: center;
+        inline-size: 28rem;
+    }
+    #section1-2 {
+        font-size: 1.5rem;
+    }
+}
