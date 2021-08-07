@@ -12,7 +12,7 @@ Reconstructed the existing [Donga news website](!https://www.donga.com/) layout.
 ### 1. Grid Layout
 The overall content layout consists of grids. Section1 is divided into section1-1 and section1-2 in a 3:1 ratio. A user can easily make out those card news section(section1-1) and the side news section(section1-2) with a space between them.
 
-<p style="align: center;">
+<p style="align: center;width: 100%;">
   <img style="width: 300px;" src="./images/layout.png" />
 </p>
 
