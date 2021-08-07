@@ -1,1 +1,0 @@
-document.write('<li><strong><a href=\'https://secure.donga.com/membership/login.php?gourl=https%3A%2F%2Fwww.donga.com%2F\' class=\'login\' target=\'_parent\'>로그인</a></strong></li>');
